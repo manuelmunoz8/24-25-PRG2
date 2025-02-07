@@ -10,14 +10,14 @@ public class NoteScale{
         Scanner input = new Scanner(System.in);
         String keyNote = input.nextLine();
         
-        TwelveNoteMap(keyNote, upperScaleMap);
-        TwelveToneScale(upperScaleMap);
-        MajorCord(upperScaleMap);
+        twelveNoteMap(keyNote, upperScaleMap);
+        twelveToneScale(upperScaleMap);
+        majorCord(upperScaleMap);
 
         input.close();
     }
     
-    public static void TwelveNoteMap(String keyNote, String[] upperScaleMap){
+    public static void twelveNoteMap(String keyNote, String[] upperScaleMap){
         String[] notes = {"Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#", "Si"};
 
         for(int i = 0; i < notes.length; i++){
@@ -25,7 +25,7 @@ public class NoteScale{
                 System.arraycopy(notes, i, upperScaleMap, 0, notes.length-i);
             }
         }
-
+        
         for(int i = 0; i < notes.length; i++){
             if (upperScaleMap[i] == null){
                 System.arraycopy(notes, 0, upperScaleMap, i, notes.length-i);
@@ -33,7 +33,7 @@ public class NoteScale{
         }
     }
 
-    public static void TwelveToneScale(String[] upperScaleMap){
+    public static void twelveToneScale(String[] upperScaleMap){
         int j = 0, i = 0;
         int[] sequence = {2,2,1,2,2,2,1};
 
@@ -42,10 +42,10 @@ public class NoteScale{
             i += sequence[j];
             j++;
         }while(i < upperScaleMap.length);
-        System.out.println("Esta es la escala dodecafonica\n");
+        System.out.println("Esta es la escala mayor\n");
     }
 
-    public static void MajorCord(String[] upperScaleMap){
+    public static void majorCord(String[] upperScaleMap){
         System.out.println(upperScaleMap[0]);
         System.out.println(upperScaleMap[4]);
         System.out.println(upperScaleMap[7]);
