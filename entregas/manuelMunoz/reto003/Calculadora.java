@@ -220,6 +220,7 @@ public class Calculadora {
             mensajeError = "La memoria esta llena";
         }else{
             numeros[posicionActual + 1] = numeros[posicionActual];
+            posicionActual++;
         }
     }
 }
